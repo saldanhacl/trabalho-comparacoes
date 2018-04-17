@@ -1,19 +1,37 @@
 package algoritmos;
 
+import util.Utils;
+
+import javax.rmi.CORBA.Util;
+
 public class Insertion {
 
-    public static int[] doInsertionSort(int[] input){
-         
+    private static long tempoInicial = 0;
+    private static long tempoFinal = 0;
+
+    public static int[] doInsertionSort(int[] array){
+
+        Utils.contCompInsertion = 0;
+        Utils.tempoExecucaoInsertion = 0;
+        tempoInicial = System.currentTimeMillis();
+
         int temp;
-        for (int i = 1; i < input.length; i++) {
+        int[] retorno = new int[array.length];
+        Utils.copiaArray(array, retorno);
+
+        for (int i = 1; i < retorno.length; i++) {
             for(int j = i ; j > 0 ; j--){
-                if(input[j] < input[j-1]){
-                    temp = input[j];
-                    input[j] = input[j-1];
-                    input[j-1] = temp;
+                Utils.contCompInsertion++;
+                if(retorno[j] < retorno[j-1]){
+                    temp = retorno[j];
+                    retorno[j] = retorno[j-1];
+                    retorno[j-1] = temp;
                 }
             }
         }
-        return input;
+        tempoFinal = System.currentTimeMillis();
+        Utils.tempoExecucaoInsertion = tempoFinal - tempoInicial;
+
+        return retorno;
     }
 }

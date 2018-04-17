@@ -1,39 +1,25 @@
 package principal;
 
 import algoritmos.*;
-import java.util.Random;
-
+import util.Utils;
 public class Principal {
 
 	public static void main(String[] args) {
 
-		int n = 10;
+		int n = 10000;
 		int[] array = new int[n];
 
-		preencheCasoMedio(array, n);
+		Utils.preencheCasoMedio(array, n);
+		//Utils.preencheMelhorCaso(array, n);
+		//Utils.preenchePiorCaso(array, n);
 
 		int[] bubble = Bubble.bubble_srt(array);
-		imprimeArray(bubble);
+		int[] insert = Insertion.doInsertionSort(array);
+		Utils.imprimeCompETempo();
 
 
 	}
 
-	private static void preencheCasoMedio(int[] array, int n){
-
-		Random rd = new Random();
-
-		for (int i = 0; i < n; i++) {
-			array[i] = rd.nextInt(100);
-		}
-	}
-
-	private static void imprimeArray(int[] array){
-
-		System.out.print("[");
-		for (int i : array)
-			System.out.print(i + ", ");
-		System.out.println("]");
-	}
 
 
 }

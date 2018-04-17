@@ -1,21 +1,39 @@
 package algoritmos;
 
+import util.Utils;
+
 public class Bubble {
-	  
+
+    private static long tempoInicial = 0;
+    private static long tempoFinal = 0;
+
+
     // logic to sort the elements
     public static int[] bubble_srt(int array[]) {
-        int[] temp = array;
-        int n = temp.length;
+
+        Utils.contCompBubble = 0;
+        Utils.tempoExecucaoBubble = 0;
+        tempoInicial = System.currentTimeMillis();
+
+        int[] retorno = new int[array.length];
+        Utils.copiaArray(array,retorno);
+
+        int n = retorno.length;
         int k;
+
         for (int m = n; m >= 0; m--) {
             for (int i = 0; i < n - 1; i++) {
                 k = i + 1;
-                if (temp[i] > temp[k]) {
-                    swapNumbers(i, k, temp);
+                Utils.contCompBubble++;
+                if (retorno[i] > retorno[k]) {
+                    swapNumbers(i, k, retorno);
                 }
             }
         }
-        return temp;
+        tempoFinal = System.currentTimeMillis();
+        Utils.tempoExecucaoBubble = tempoFinal - tempoInicial;
+
+        return retorno;
     }
   
     private static void swapNumbers(int i, int j, int[] array) {
@@ -26,12 +44,5 @@ public class Bubble {
         array[j] = temp;
     }
   
-    private static void printNumbers(int[] input) {
-          
-        for (int i = 0; i < input.length; i++) {
-            System.out.print(input[i] + ", ");
-        }
-        System.out.println("\n");
-    }
 
 }
