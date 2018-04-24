@@ -1,10 +1,21 @@
 package algoritmos;
 
+import util.Utils;
+
 //Java program for implementation of Heap Sort
 public class Heap
 {
- public void sort(int arr[])
+
+    private static long tempoInicial = 0;
+    private static long tempoFinal = 0;
+
+ public static void sort(int arr[])
  {
+
+     Utils.contCompHeap = 0;
+     Utils.tempoExecucaoHeap = 0;
+     tempoInicial = System.currentTimeMillis();
+
      int n = arr.length;
 
      // Build heap (rearrange array)
@@ -22,24 +33,29 @@ public class Heap
          // call max heapify on the reduced heap
          heapify(arr, i, 0);
      }
+     tempoFinal = System.currentTimeMillis();
+     Utils.tempoExecucaoHeap = tempoFinal - tempoInicial;
  }
 
  // To heapify a subtree rooted with node i which is
  // an index in arr[]. n is size of heap
- void heapify(int arr[], int n, int i)
+ static void heapify(int arr[], int n, int i)
  {
      int largest = i;  // Initialize largest as root
      int l = 2*i + 1;  // left = 2*i + 1
      int r = 2*i + 2;  // right = 2*i + 2
 
+     Utils.contCompHeap++;
      // If left child is larger than root
      if (l < n && arr[l] > arr[largest])
          largest = l;
 
+     Utils.contCompHeap++;
      // If right child is larger than largest so far
      if (r < n && arr[r] > arr[largest])
          largest = r;
 
+     Utils.contCompHeap++;
      // If largest is not root
      if (largest != i)
      {

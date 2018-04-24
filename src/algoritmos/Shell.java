@@ -1,14 +1,25 @@
 package algoritmos;
 
+import util.Utils;
+
 public class Shell {
 
-	  /*  O metodo é invocado atraves de chamada estatica passando a copia da referencia     |
+
+	private static long tempoInicial = 0;
+	private static long tempoFinal = 0;
+
+	  /*  O metodo ï¿½ invocado atraves de chamada estatica passando a copia da referencia     |
 	  |  do vetor a ser ordenado como parametro, e esse parametro, fazendo com que o objeto  |
-	  |  vetor seja ordenado, devido a serem referencias ao mesmo objeto, não é necessario   |
-	  |  retornar nada, pois na proxima chamada do objeto, o mesmo já estara ordenado.       |
+	  |  vetor seja ordenado, devido a serem referencias ao mesmo objeto, nï¿½o ï¿½ necessario   |
+	  |  retornar nada, pois na proxima chamada do objeto, o mesmo jï¿½ estara ordenado.       |
 	  |        Exmplo de chamada:  int vetor = ShellSort.ordenar(vetor);                    */
 	  
 		public static void ordenar(int[] vet){
+
+			Utils.contCompShell = 0;
+			Utils.tempoExecucaoShell = 0;
+			tempoInicial = System.currentTimeMillis();
+
 		    int i , j , temp, size = vet.length;
 		    
 		    int incremento = 1;
@@ -28,6 +39,8 @@ public class Shell {
 		            }
 		            vet [j + incremento] = temp;
 		        }
-		    }	    
+		    }
+			tempoFinal = System.currentTimeMillis();
+			Utils.tempoExecucaoShell = tempoFinal - tempoInicial;
 		}	
 	}
