@@ -237,22 +237,22 @@ public class Utils {
         System.out.println("----- Pior caso -----");
         preenchePiorCaso(array, n);
         Shell.ordenar(array);
-        System.out.print(Utils.contCompSelection + " comparacoes | ");
-        System.out.println(Utils.tempoExecucaoSelection + "ms");
+        System.out.print(Utils.contCompShell + " comparacoes | ");
+        System.out.println(Utils.tempoExecucaoShell + "ms");
 
 
         System.out.println("----- Caso médio -----");
         preencheCasoMedio(array, n);
         Shell.ordenar(array);
-        System.out.print(Utils.contCompSelection + " comparacoes | ");
-        System.out.println(Utils.tempoExecucaoSelection + "ms");
+        System.out.print(Utils.contCompShell + " comparacoes | ");
+        System.out.println(Utils.tempoExecucaoShell + "ms");
 
 
         System.out.println("----- Melhor caso -----");
         preencheMelhorCaso(array, n);
         Shell.ordenar(array);
-        System.out.print(Utils.contCompSelection + " comparacoes | ");
-        System.out.println(Utils.tempoExecucaoSelection + "ms");
+        System.out.print(Utils.contCompShell + " comparacoes | ");
+        System.out.println(Utils.tempoExecucaoShell + "ms");
 
         System.out.println("---------------------------------------\n\n");
 

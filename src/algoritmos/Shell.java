@@ -33,8 +33,10 @@ public class Shell {
 		        for(i = incremento; i < size; i++) {
 		            temp = vet[i];
 		            j = i - incremento;
+		            Utils.contCompShell++;
 		            while (j >= 0 && temp < vet[j]) {
-		                vet[j + incremento] = vet[j];
+						Utils.contCompShell++;
+						vet[j + incremento] = vet[j];
 		                j -= incremento;
 		            }
 		            vet [j + incremento] = temp;
