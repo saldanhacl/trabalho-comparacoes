@@ -58,29 +58,45 @@ public class Utils {
         System.out.println(" ]");
     }
 
+
+
     public static void imprimeCompETempoBubble(int[] array, int n){
+
+        Bubble b = new Bubble();
 
         System.out.println("------------  BUBBLE SORT -------------");
 
         System.out.println("----- Pior caso -----");
-        preenchePiorCaso(array, n);
-        Bubble.bubble_srt(array);
+
+        for (int i=0; i<100; i++) {
+            preenchePiorCaso(array, n);
+            b.bubble_srt(array);
+        }
+
         System.out.print(Utils.contCompBubble + " comparacoes | ");
-        System.out.println(Utils.tempoExecucaoBubble + "ms");
+        System.out.println( (b.tempoExec / b.numSorts) + "ms");
 
-
+        b = new Bubble();
         System.out.println("----- Caso médio -----");
-        preencheCasoMedio(array, n);
-        Bubble.bubble_srt(array);
+
+        for (int i=0; i<100; i++) {
+            preenchePiorCaso(array, n);
+            b.bubble_srt(array);
+        }
+
         System.out.print(Utils.contCompBubble + " comparacoes | ");
-        System.out.println(Utils.tempoExecucaoBubble + "ms");
+        System.out.println((b.tempoExec / b.numSorts) + "ms");
 
-
+        b = new Bubble();
         System.out.println("----- Melhor caso -----");
-        preencheMelhorCaso(array, n);
-        Bubble.bubble_srt(array);
+
+        for (int i=0; i<100; i++) {
+            preenchePiorCaso(array, n);
+            b.bubble_srt(array);
+        }
+
         System.out.print(Utils.contCompBubble + " comparacoes | ");
-        System.out.println(Utils.tempoExecucaoBubble + "ms");
+        System.out.println((b.tempoExec / b.numSorts) + "ms");
 
         System.out.println("---------------------------------------\n\n");
 

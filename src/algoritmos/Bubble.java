@@ -4,12 +4,20 @@ import util.Utils;
 
 public class Bubble {
 
-    private static long tempoInicial = 0;
-    private static long tempoFinal = 0;
+    private long tempoInicial;
+    private long tempoFinal;
+    public long numSorts;
+    public long tempoExec;
 
+    public Bubble() {
+        tempoInicial = 0;
+        tempoFinal = 0;
+        tempoExec = 0;
+        numSorts = 0;
+    }
 
     // logic to sort the elements
-    public static int[] bubble_srt(int array[]) {
+    public int[] bubble_srt(int array[]) {
 
         Utils.contCompBubble = 0;
         Utils.tempoExecucaoBubble = 0;
@@ -31,7 +39,8 @@ public class Bubble {
             }
         }
         tempoFinal = System.currentTimeMillis();
-        Utils.tempoExecucaoBubble = tempoFinal - tempoInicial;
+        tempoExec += tempoFinal - tempoInicial;
+        numSorts ++;
 
         return retorno;
     }
